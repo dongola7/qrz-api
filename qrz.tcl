@@ -112,7 +112,7 @@ proc ::qrz::login {username password} {
     set sessionKey ""
     set loginInfo [list username $username password $password]
     set result [QueryApi]
-    return [dict get $result QRZDatabase Session]
+    return $result
 }
 
 proc ::qrz::lookupCallsign {callsign} {
@@ -122,7 +122,7 @@ proc ::qrz::lookupCallsign {callsign} {
         error [dict get $result QRZDatabase Session Error]
     }
 
-    return [dict get $result QRZDatabase Callsign]
+    return $result
 }
 
 puts [qrz::login $env(QRZ_USERNAME) $env(QRZ_PASSWORD)]
